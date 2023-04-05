@@ -1,5 +1,6 @@
 package com.example.moviecatalog
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.ProxyFileDescriptorCallback
@@ -9,6 +10,7 @@ import com.example.moviecatalog.models.MovieResponse
 import com.example.moviecatalog.services.MovieApiInterface
 import com.example.moviecatalog.services.MovieApiService
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.recycler_movie_info.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         getMoviesData { movies : List<Movie> ->
             rvMovie.adapter = MovieAdapter(movies)
         }
+
     }
 
     private fun getMoviesData(callback: (List<Movie>) -> Unit) {
@@ -37,4 +40,15 @@ class MainActivity : AppCompatActivity() {
 
         })
     }
+
+    //create a function to go to the next activity using  Movie id
+    private fun goToNextActivity2() {
+        ivImage.setOnClickListener {
+            Intent(this, MainActivity2::class.java).also {
+                startActivity(it)
+            }
+        }
+    }
+
+
 }

@@ -15,6 +15,7 @@ data class Movie (
     @SerializedName("poster_path")
     val image : String?,
 
+
     //@SerializedName("genre_ids")
  //   val certification : List<Int>?,
 
